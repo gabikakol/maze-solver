@@ -1,4 +1,4 @@
-# week 1 #
+# week 1
 Programme: Bachelor in Science (eng) <br />
 Language: Python <br />
 <br />
