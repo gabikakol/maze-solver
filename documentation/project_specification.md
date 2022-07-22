@@ -13,6 +13,9 @@ What problem are you solving and why did you chose these specific data structure
 I create a random maze generator: generate a maze and solve it (+ I use pygame to illustrate the whole process). I consider maze to be an undirected graph, where cells are vertices and walls are edges.<br/>
 I use Depth First Seach algorithm since it allows me to visit all reachable vertices, ie. all the cells in the maze grid, and stack to keep track of the visited cells. Maze will always have one entrance point and one exit, and it will consists of various dead ends. <br/>
 <br/>
+General method (steps): <br/>
+I pop a cell from a non-empty stack. It is my current cell now. I check its neighbours. If it has any unvisited ones, I push it back to the stack and choose one of those neighbours. I remove the wall between the cell and its chosen neighbour. I mark the neighbour cell as visited and push it to the stack. <br/>
+<br/>
 <br/>
 What is the program input and how will it be used?<br/>
 <br/>
