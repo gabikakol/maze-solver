@@ -1,11 +1,11 @@
 # project specification
-**Programme: Bachelor in Science (english) <br/>
-Language of the project: Python<br/>**
+**Programme: Bachelor in Science <br/>
+Language of the project: english (Python) <br/>**
 <br/>
 <br/>
 What data structures and algorithms will you be using? <br/>
 <br/>
-I will use Depth First Search (DFS) and stack. <br/>
+I will use Depth First Search (DFS) and stack. The project will be written in Python. <br/>
 <br/>
 <br/>
 What problem are you solving and why did you chose these specific data structures and algorithms?<br/>
