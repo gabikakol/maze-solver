@@ -5,7 +5,8 @@ Language of the project: english (Python) <br/>**
 <br/>
 What data structures and algorithms will you be using? <br/>
 <br/>
-I will use Depth First Search (DFS) and stack for maze generating and Breadth First Search (BFS) for maze solving. The project will be written in Python. <br/>
+I will use Depth First Search (DFS) and stack for maze generating and Breadth First Search (BFS) for maze solving. <br/>
+The project will be written in Python. <br/>
 <br/>
 <br/>
 What problem are you solving and why did you chose these specific data structures and algorithms?<br/>
