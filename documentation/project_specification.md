@@ -14,7 +14,7 @@ What problem are you solving and why did you chose these specific data structure
 I create a random maze generator: generate a maze and solve it (+ I use pygame to illustrate the whole process). I consider maze to be an undirected, fully connected graph, where cells are vertices and the paths in the maze are the edges. <br/>
 I use randomized Prim's algorithm, which goes through all the cells and adds them to the minimum spanning tree (MST) to keep track of the visited vertices (nodes). The distance from the node is always the same (1), hence the edge is chosen randomly. 
 Maze will always have one entrance point and one exit point, and it will consists of various dead ends. <br/>
-I use Tremaux algorithm to find the path from the starting point to the exit. The edges are marked as unvisited, visited once (correct path), or visited twice (uncorrect path). I mark a path as visited when I enter it and never enter the path that has been visited twice. The operation ends when there are no unvisited edges or the maze is solved (correct path to the end point is found). <br/>
+I use Tremaux algorithm to find the path from the starting point to the exit. The edges are marked as unvisited, visited once (correct path), or visited twice (uncorrect path). I mark a path as visited when I enter it and never enter the path that has been visited twice. The operation ends when the maze is solved (correct path to the end point is found). <br/>
 <br/>
 <br/>
 What is the program input and how will it be used?<br/>
