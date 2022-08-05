@@ -1,5 +1,10 @@
+#ERRORS:
+#return_to_junction() doesnt work yet
+#current_cell() when false, sometimes puts 'x' on the correct path
+
 import random
 import pygame
+import copy
 
 class GenerateMaze():
 #this class creates random maze using randomized Prim's algorithm 
@@ -271,10 +276,186 @@ class GenerateMaze():
 
         self.print_maze()
 
-class FindSolution():
+class FindSolution(GenerateMaze):
 #Tremaux's algorithm
     def __init__(self):
-        pass
+        entrance = copy.deepcopy(maze.entrance)
+        self.marked = copy.deepcopy(maze.maze)
+        for i in range(len(self.marked)):
+            for j in range(len(self.marked[i])):
+                if self.marked[i][j] == ".":
+                    self.marked[i][j] = 0
+                    # 0 = not marked; +1 with every visit, 'x' if it's a dead end
+        self.walkable = copy.deepcopy(maze.maze)
+        self.exit = copy.deepcopy(maze.exit)
+        self.moves = []
+
+        self.current_cell("from_top", 0, entrance)
+
+    def junction_from_top(self, row, column):
+        #checks for junction one down, and one to the right and left
+        self.moves.append("from_top")
+        junction = False
+
+        #check if it's not the last row and if one cell down is a path
+        if row != len(self.walkable)-1:
+            if self.walkable[row+1][column] == "." and self.marked[row+1][column] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_top", row+1, column)
+                return junction
+
+        #check if it's not the last column and if one cell to the right is a path
+        if column != len(self.walkable[-1])-1 and junction == False:
+            if self.walkable[row][column+1] == "." and self.marked[row][column+1] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_left", row, column+1)
+                return junction
+
+        #check if it's not the first column and if one cell to the left is a path
+        if column != 0 and junction == False:
+            if self.walkable[row][column-1] == "." and self.marked[row][column-1] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_right", row, column-1)
+                return junction
+        
+        return junction
+    
+    def junction_from_left(self, row, column):
+        #checks for junction one down, one up, and one to the right
+        self.moves.append("from_left")
+        junction = False
+        
+        #check if it's not the last row and if one cell down is a path
+        if row != len(self.walkable)-1:
+            if self.walkable[row+1][column] == "." and self.marked[row+1][column] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_top", row+1, column)
+                return junction
+
+        #check if it's not the last column and if one cell to the right is a path
+        if column != len(self.walkable[-1])-1 and junction == False:
+            if self.walkable[row][column+1] == "." and self.marked[row][column+1] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_left", row, column+1)
+                return junction
+        
+        #check if it's not the first row and if one cell up is a path
+        if row != 0 and junction == False:
+            if self.walkable[row-1][column] == "." and self.marked[row-1][column] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_bottom", row-1, column)
+                return junction
+
+        return junction
+
+    def junction_from_right(self, row, column):
+        #checks for junction one down, one up, and one to the left
+        self.moves.append("from_right")
+        junction = False
+        
+        #check if it's not the last row and if one cell down is a path
+        if row != len(self.walkable)-1:
+            if self.walkable[row+1][column] == "." and self.marked[row+1][column] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_top", row+1, column)
+                return junction
+
+        #check if it's not the first column and if one cell to the left is a path
+        if column != 0 and junction == False:
+            if self.walkable[row][column-1] == "." and self.marked[row][column-1] != "x":
+                self.junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_right", row, column-1)
+                return junction
+        
+        #check if it's not the first row and if one cell up is a path
+        if row != 0 and junction == False:
+            if self.walkable[row-1][column] == "." and self.marked[row-1][column] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_bottom", row-1, column)
+                return junction
+
+        return junction
+
+    def junction_from_bottom(self, row, column):
+        #checks for junction one up, and one to the right and left
+        self.moves.append("from_bottom")
+        junction = False
+
+        #check if it's not the last column and if one cell to the right is a path
+        if column != len(self.walkable[-1])-1:
+            if self.walkable[row][column+1] == "." and self.marked[row][column+1] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_left", row, column+1)
+                return junction
+                
+        #check if it's not the first column and if one cell to the left is a path
+        if column != 0 and junction == False:
+            if self.walkable[row][column-1] == "." and self.marked[row][column-1] != "x":
+                self.junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_right", row, column-1)
+                return junction
+
+        #check if it's not the first row and if one cell up is a path
+        if row != 0 and junction == False:
+            if self.walkable[row-1][column] == "." and self.marked[row-1][column] != "x":
+                junction = True
+                self.marked[row][column] += 1
+                self.current_cell("from_bottom", row-1, column)
+                return junction
+        
+        return junction
+
+    def current_cell(self, from_where, row, column):
+        exit = self.scan_for_exit(row, column)
+
+        if not exit:
+            junction = False
+            if from_where == "from_top":
+                junction = self.junction_from_top(row, column)
+            elif from_where == "from_left":
+                junction = self.junction_from_left(row, column)
+            elif from_where == "from_right":
+                junction = self.junction_from_right(row, column)
+            elif from_where == "from_bottom":
+                junction = self.junction_from_bottom(row, column)
+        
+            if junction == False:
+                self.marked[row][column] = "x"
+                del self.moves[-1]
+                #self.return_to_junction(from_where, row, column)
+
+    def scan_for_exit(self, row, column):
+        exit = False
+        if (row, column) == (len(self.walkable)-1, self.exit):
+            exit = True
+            self.marked[row][column] = 1
+            print("exit found")
+        return exit
+
+    def return_to_junction(self, from_where, row, column):
+        if from_where == "from_top":
+            self.current_cell(self.moves[-1], row-1, column)
+            #print(row-1, column)
+        elif from_where == "from_left":
+            self.current_cell(self.moves[-1], row, column-1)
+            #print(row, column-1)
+        elif from_where == "from_right":
+            self.current_cell(self.moves[-1], row, column+1)
+            #print(row, column+1)
+        elif from_where == "from_bottom":
+            self.current_cell(self.moves[-1], row+1, column)
+            #print(row+1, column)
 
 # initialize pygame window
 pygame.init()
@@ -295,6 +476,12 @@ screen_height = cell_size*maze.height+margin*2
 window = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
     
+for i in range(len(solve.marked)):
+            maze_row = ""
+            for j in range(len(solve.marked[i])):
+                maze_row = maze_row + str(solve.marked[i][j]) + " "
+            print(maze_row)
+
 def draw_path():
     indx_y = 0
     for i in maze.maze:
