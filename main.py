@@ -1,6 +1,5 @@
 #ERRORS:
-#return_to_junction() doesnt work yet
-#current_cell() when false, sometimes puts 'x' on the correct path
+#return_to_junction() must be fixed: doesn't put all the 'x's correctly; sometimes index out of range
 
 import random
 import pygame
@@ -321,7 +320,10 @@ class FindSolution(GenerateMaze):
                 self.current_cell("from_right", row, column-1)
                 return junction
         
-        return junction
+        if junction == False:
+            self.marked[row][column] = "x"
+            del self.moves[-1]
+            #self.return_to_junction("from_top", row, column)
     
     def junction_from_left(self, row, column):
         #checks for junction one down, one up, and one to the right
@@ -352,7 +354,10 @@ class FindSolution(GenerateMaze):
                 self.current_cell("from_bottom", row-1, column)
                 return junction
 
-        return junction
+        if junction == False:
+            self.marked[row][column] = "x"
+            del self.moves[-1]
+            #self.return_to_junction("from_left", row, column)
 
     def junction_from_right(self, row, column):
         #checks for junction one down, one up, and one to the left
@@ -383,7 +388,10 @@ class FindSolution(GenerateMaze):
                 self.current_cell("from_bottom", row-1, column)
                 return junction
 
-        return junction
+        if junction == False:
+            self.marked[row][column] = "x"
+            del self.moves[-1]
+            #self.return_to_junction("from_right", row, column)
 
     def junction_from_bottom(self, row, column):
         #checks for junction one up, and one to the right and left
@@ -414,7 +422,10 @@ class FindSolution(GenerateMaze):
                 self.current_cell("from_bottom", row-1, column)
                 return junction
         
-        return junction
+        if junction == False:
+            self.marked[row][column] = "x"
+            del self.moves[-1]
+            #self.return_to_junction("from_bottom", row, column)
 
     def current_cell(self, from_where, row, column):
         exit = self.scan_for_exit(row, column)
@@ -429,11 +440,6 @@ class FindSolution(GenerateMaze):
                 junction = self.junction_from_right(row, column)
             elif from_where == "from_bottom":
                 junction = self.junction_from_bottom(row, column)
-        
-            if junction == False:
-                self.marked[row][column] = "x"
-                del self.moves[-1]
-                #self.return_to_junction(from_where, row, column)
 
     def scan_for_exit(self, row, column):
         exit = False
