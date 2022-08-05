@@ -302,7 +302,6 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_top", row+1, column)
-                return junction
 
         #check if it's not the last column and if one cell to the right is a path
         if column != len(self.walkable[-1])-1 and junction == False:
@@ -310,7 +309,6 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_left", row, column+1)
-                return junction
 
         #check if it's not the first column and if one cell to the left is a path
         if column != 0 and junction == False:
@@ -318,12 +316,11 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_right", row, column-1)
-                return junction
         
         if junction == False:
             self.marked[row][column] = "x"
             del self.moves[-1]
-            #self.return_to_junction("from_top", row, column)
+            self.return_to_junction("from_top", row, column)
     
     def junction_from_left(self, row, column):
         #checks for junction one down, one up, and one to the right
@@ -336,7 +333,6 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_top", row+1, column)
-                return junction
 
         #check if it's not the last column and if one cell to the right is a path
         if column != len(self.walkable[-1])-1 and junction == False:
@@ -344,7 +340,6 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_left", row, column+1)
-                return junction
         
         #check if it's not the first row and if one cell up is a path
         if row != 0 and junction == False:
@@ -352,12 +347,11 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_bottom", row-1, column)
-                return junction
 
         if junction == False:
             self.marked[row][column] = "x"
             del self.moves[-1]
-            #self.return_to_junction("from_left", row, column)
+            self.return_to_junction("from_left", row, column)
 
     def junction_from_right(self, row, column):
         #checks for junction one down, one up, and one to the left
@@ -370,7 +364,6 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_top", row+1, column)
-                return junction
 
         #check if it's not the first column and if one cell to the left is a path
         if column != 0 and junction == False:
@@ -378,7 +371,6 @@ class FindSolution(GenerateMaze):
                 self.junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_right", row, column-1)
-                return junction
         
         #check if it's not the first row and if one cell up is a path
         if row != 0 and junction == False:
@@ -386,12 +378,11 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_bottom", row-1, column)
-                return junction
 
         if junction == False:
             self.marked[row][column] = "x"
             del self.moves[-1]
-            #self.return_to_junction("from_right", row, column)
+            self.return_to_junction("from_right", row, column)
 
     def junction_from_bottom(self, row, column):
         #checks for junction one up, and one to the right and left
@@ -404,7 +395,6 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_left", row, column+1)
-                return junction
                 
         #check if it's not the first column and if one cell to the left is a path
         if column != 0 and junction == False:
@@ -412,7 +402,6 @@ class FindSolution(GenerateMaze):
                 self.junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_right", row, column-1)
-                return junction
 
         #check if it's not the first row and if one cell up is a path
         if row != 0 and junction == False:
@@ -420,18 +409,16 @@ class FindSolution(GenerateMaze):
                 junction = True
                 self.marked[row][column] += 1
                 self.current_cell("from_bottom", row-1, column)
-                return junction
         
         if junction == False:
             self.marked[row][column] = "x"
             del self.moves[-1]
-            #self.return_to_junction("from_bottom", row, column)
+            self.return_to_junction("from_bottom", row, column)
 
     def current_cell(self, from_where, row, column):
         exit = self.scan_for_exit(row, column)
 
         if not exit:
-            junction = False
             if from_where == "from_top":
                 junction = self.junction_from_top(row, column)
             elif from_where == "from_left":
@@ -452,16 +439,12 @@ class FindSolution(GenerateMaze):
     def return_to_junction(self, from_where, row, column):
         if from_where == "from_top":
             self.current_cell(self.moves[-1], row-1, column)
-            #print(row-1, column)
         elif from_where == "from_left":
             self.current_cell(self.moves[-1], row, column-1)
-            #print(row, column-1)
         elif from_where == "from_right":
             self.current_cell(self.moves[-1], row, column+1)
-            #print(row, column+1)
         elif from_where == "from_bottom":
             self.current_cell(self.moves[-1], row+1, column)
-            #print(row+1, column)
 
 # initialize pygame window
 pygame.init()
