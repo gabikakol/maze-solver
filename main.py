@@ -7,13 +7,13 @@ class GenerateMaze():
 
     def __init__(self):
         # user input
-        width = 10
+        width = 30
         #width = int(input("Width: "))
         while width < 3:
             print("The minimum width of the maze must be 3")
             width = int(input("Width: "))
 
-        height = 11
+        height = 20
         #height = int(input("Height: "))
         while height <3:
             print("The minimum height of the maze must be 3")
@@ -284,13 +284,12 @@ class FindSolution(GenerateMaze):
                     # 0 = not marked; +1 with every visit, 'x' if it's a dead end
         self.walkable = copy.deepcopy(maze.maze)
         self.exit = copy.deepcopy(maze.exit)
-        self.moves = []
+        self.moves = {}
 
         self.current_cell("from_top", 0, self.entrance)
 
     def junction_from_top(self, row, column):
         #checks for junction one down, and one to the right and left
-        self.moves.append("from_top")
         junction = False
 
         #check if it's not the last row and if one cell down is a path
@@ -317,13 +316,11 @@ class FindSolution(GenerateMaze):
         if junction == False:
             if (row, column) != (0, self.entrance):
                 self.marked[row][column] = "x"
-            del self.moves[-1]
             move_back = self.return_to_junction("from_top", row, column)
             return (move_back[0], move_back[1], move_back[2])
     
     def junction_from_left(self, row, column):
         #checks for junction one down, one up, and one to the right
-        self.moves.append("from_left")
         junction = False
         
         #check if it's not the last row and if one cell down is a path
@@ -350,13 +347,11 @@ class FindSolution(GenerateMaze):
         if junction == False:
             if (row, column) != (0, self.entrance):
                 self.marked[row][column] = "x"
-            del self.moves[-1]
             move_back = self.return_to_junction("from_left", row, column)
             return (move_back[0], move_back[1], move_back[2])
 
     def junction_from_right(self, row, column):
         #checks for junction one down, one up, and one to the left
-        self.moves.append("from_right")
         junction = False
         
         #check if it's not the last row and if one cell down is a path
@@ -383,13 +378,11 @@ class FindSolution(GenerateMaze):
         if junction == False:
             if (row, column) != (0, self.entrance):
                 self.marked[row][column] = "x"
-            del self.moves[-1]
             move_back = self.return_to_junction("from_right", row, column)
             return (move_back[0], move_back[1], move_back[2])
 
     def junction_from_bottom(self, row, column):
         #checks for junction one up, and one to the right and left
-        self.moves.append("from_bottom")
         junction = False
 
         #check if it's not the last column and if one cell to the right is a path
@@ -416,11 +409,11 @@ class FindSolution(GenerateMaze):
         if junction == False:
             if (row, column) != (0, self.entrance):
                 self.marked[row][column] = "x"
-            del self.moves[-1]
             move_back = self.return_to_junction("from_bottom", row, column)
             return (move_back[0], move_back[1], move_back[2])
 
     def current_cell(self, from_where, row, column):
+        self.moves[(row, column)] = from_where
         exit = self.scan_for_exit(row, column)
 
         if not exit:
@@ -444,7 +437,7 @@ class FindSolution(GenerateMaze):
         return exit
 
     def return_to_junction(self, from_where, row, column):
-        if from_where == "from_top":
+        if from_where == "from_top" and row != 0:
             row -= 1
         elif from_where == "from_left":
             column -= 1
@@ -452,7 +445,8 @@ class FindSolution(GenerateMaze):
             column += 1
         elif from_where == "from_bottom":
             row += 1
-        return (from_where, row, column)
+        direction = self.moves[(row, column)]
+        return (direction, row, column)
 
 # initialize pygame window
 pygame.init()
@@ -479,7 +473,7 @@ for i in range(len(solve.marked)):
                 maze_row = maze_row + str(solve.marked[i][j]) + " "
             print(maze_row)
 
-def draw_path():
+def draw_empty_paths():
     indx_y = 0
     for i in maze.maze:
         indx_x = 0
@@ -493,10 +487,24 @@ def draw_path():
                 pygame.draw.rect(window, (255, 255, 255), coord)
         indx_y += 1
 
+def draw_solved():
+    indx_y = 0
+    for i in solve.marked:
+        indx_x = 0
+        y = margin+indx_y*cell_size
+        for j in i:
+            x = margin+indx_x*cell_size
+            coord = (x+1, y+1, cell_size-2, cell_size-2)
+            indx_x += 1
+            if j != "#" and j != "x" and j != 0:
+                pygame.draw.rect(window, (255, 0, 0), coord)
+        indx_y += 1
+
 while True:
     window.fill(pygame.Color(0,0,0))
 
-    draw_path()
+    draw_empty_paths()
+    draw_solved()
 
     for x in pygame.event.get():
         if x.type == pygame.QUIT:
