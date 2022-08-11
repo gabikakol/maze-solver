@@ -5,14 +5,14 @@ class GenerateMaze():
 
     def __init__(self):
         # user input
-        width = 40
-        #width = int(input("Width: "))
+        #width = 40
+        width = int(input("Width: "))
         while width < 3:
             print("The minimum width of the maze must be 3")
             width = int(input("Width: "))
 
-        height = 44
-        #height = int(input("Height: "))
+        #height = 44
+        height = int(input("Height: "))
         while height <3:
             print("The minimum height of the maze must be 3")
             height = int(input("Height: "))
