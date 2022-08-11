@@ -7,4 +7,4 @@ weekly report: [here](week2/week2_report.md) <br/>
 main code: [here](week2/main1.py)
 ## week 3
 weekly report: [here](week3/week3_report.md) <br/>
-main code: [here](main.py)<br/>
+main code: [here](main)<br/>
