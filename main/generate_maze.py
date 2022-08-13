@@ -4,15 +4,15 @@ class GenerateMaze():
 #this class creates random maze using randomized Prim's algorithm 
 
     def __init__(self):
-        # user input
-        #width = 40
-        width = int(input("Width: "))
+        #user input
+        width = 69
+        #width = int(input("Width: "))
         while width < 3:
             print("The minimum width of the maze must be 3")
             width = int(input("Width: "))
 
-        #height = 44
-        height = int(input("Height: "))
+        height = 69
+        #height = int(input("Height: "))
         while height <3:
             print("The minimum height of the maze must be 3")
             height = int(input("Height: "))
@@ -131,7 +131,6 @@ class GenerateMaze():
                     self.right_wall(a,b)
             
             self.remove_wall(random_wall)
-
 
     def if_not_left(self, random_wall):
         a = random_wall[0]
