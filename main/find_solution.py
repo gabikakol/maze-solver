@@ -170,7 +170,6 @@ class FindSolution():
         if column == self.exit:
             exit = True
             self.marked[row][column] += 1
-            #print("exit found")
         return exit
 
     def return_to_junction(self, from_where, row, column):
