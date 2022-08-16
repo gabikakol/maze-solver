@@ -1,4 +1,3 @@
-import random
 import copy
 from generate_maze import GenerateMaze
 

@@ -19,12 +19,6 @@ screen_height = cell_size*solve.height+margin*2
 window = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
     
-#for i in range(len(solve.marked)):
-#            maze_row = ""
-#            for j in range(len(solve.marked[i])):
-#                maze_row = maze_row + str(solve.marked[i][j]) + " "
-#            print(maze_row)
-
 class Draw():
     def __init__(self):
         pass

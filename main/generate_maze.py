@@ -77,20 +77,20 @@ class GenerateMaze():
         random_wall = self.walls[random.randint(0,len(self.walls)-1)]
         #checks if it's an upper wall
         if random_wall[0] != 0:
-            self.if_not_upper(random_wall)
+            self.not_upper(random_wall)
         #checks if it's a bottom wall
         if random_wall[0] != self.height-1:
-            self.if_not_bottom(random_wall)
+            self.not_bottom(random_wall)
         #checks if it's a left wall
         if random_wall[1] != 0:
-            self.if_not_left(random_wall)
+            self.not_left(random_wall)
         #checks if it's a right wall
         if random_wall[1] != self.width-1:
-            self.if_not_right(random_wall)
+            self.not_right(random_wall)
 
         self.remove_wall(random_wall)
 
-    def if_not_upper(self, random_wall):
+    def not_upper(self, random_wall):
         a = random_wall[0]
         b = random_wall[1]
 
@@ -111,7 +111,7 @@ class GenerateMaze():
         
         self.remove_wall(random_wall)
 
-    def if_not_bottom(self, random_wall):
+    def not_bottom(self, random_wall):
         a = random_wall[0]
         b = random_wall[1]
 
@@ -132,7 +132,7 @@ class GenerateMaze():
             
             self.remove_wall(random_wall)
 
-    def if_not_left(self, random_wall):
+    def not_left(self, random_wall):
         a = random_wall[0]
         b = random_wall[1]
 
@@ -153,7 +153,7 @@ class GenerateMaze():
 
             self.remove_wall(random_wall)
 
-    def if_not_right(self, random_wall):
+    def not_right(self, random_wall):
         a = random_wall[0]
         b = random_wall[1]
 
@@ -176,29 +176,25 @@ class GenerateMaze():
 
     def upper_wall(self, a, b):
         #marks the cell as visited, puts a wall there (above the path ".")
-        if self.maze[a-1][b] != ".":
-            self.maze[a-1][b] = "#"
+        self.maze[a-1][b] = "#"
         if [a-1, b] not in self.walls:
             self.walls.append([a-1, b])
 
     def bottom_wall(self, a, b):
         #marks the cell as visited, puts a wall there (below the path ".")
-        if self.maze[a+1][b] != ".":
-            self.maze[a+1][b] = "#"
+        self.maze[a+1][b] = "#"
         if [a+1, b] not in self.walls:
             self.walls.append([a+1, b])
 
     def left_wall(self, a, b):
         #marks the cell as visited, puts a wall there (on the left from the path ".")
-        if self.maze[a][b-1] != ".":
-            self.maze[a][b-1] = "#"
+        self.maze[a][b-1] = "#"
         if [a, b-1] not in self.walls:
             self.walls.append([a, b-1])
 
     def right_wall(self, a, b):
         #marks the cell as visited, puts a wall there (on the right from the path ".")
-        if self.maze[a][b+1] != ".":
-            self.maze[a][b+1] = "#"
+        self.maze[a][b+1] = "#"
         if [a, b+1] not in self.walls:
             self.walls.append([a, b+1])
 
