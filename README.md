@@ -12,7 +12,8 @@ main code: [here](main)<br/>
 weekly report: [here](week4/week4_report.md) <br/>
 main code: [here](main) <br/>
 ## week 5
+weekly report: [here](week5/week5_report.md) <br/>
 documentation:
 - implementation: [here](documentation/implementation.md)
-- testing: [here](documentation/testing.md)
+- testing: [here](documentation/testing.md) <br/>
 main code: [here](main) <br/>
