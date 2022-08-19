@@ -1,5 +1,5 @@
 # week 5
-hours spent: 15h <br/>
+hours spent: about 15h <br/>
 <br/>
 <br/>
 This week I updated testing and implementation documents. To be honest, I didn’t work much on my code because I’m travelling but I’ll look into it more next week. <br/>
