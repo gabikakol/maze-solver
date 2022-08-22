@@ -1,1 +1,2 @@
 # user guide
+install ```pygame```
