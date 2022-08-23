@@ -4,7 +4,7 @@ main code: [here](main)
 - project specification: [here](documentation/project_specification.md) <br />
 - implementation: [here](documentation/implementation.md)
 - testing: [here](documentation/testing.md) <br/>
-- user guide: [here](documentation/testing.md) <br/>
+- user guide: [here](documentation/user_guide.md) <br/>
 ## week reports
 - week 1: [here](week_reports/week1_report.md) <br/>
 - week 2: [here](week_reports/week2_report.md) <br/>
