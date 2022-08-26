@@ -1,5 +1,6 @@
 import pygame
 import pygame_menu
+#from generate_maze import GenerateMaze
 
 pygame.init()
 window = pygame.display.set_mode((700, 400))
@@ -10,11 +11,10 @@ menu = pygame_menu.Menu('Maze dimensions', 600, 300, theme=pygame_menu.themes.TH
 def maze_dimensions():
     width = int(w.get_value())
     height = int(h.get_value())
-    print((width, height))
-    return (width, height)
+    pass
 
-w = menu.add.text_input('Width: ', default=0)
-h = menu.add.text_input('Height: ', default=0)
+w = menu.add.text_input('Width: ')
+h = menu.add.text_input('Height: ')
 menu.add.button('Go!', maze_dimensions)
 menu.add.button('Exit', pygame_menu.events.EXIT)
 

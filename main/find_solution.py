@@ -1,7 +1,7 @@
 import copy
 from generate_maze import GenerateMaze 
 
-maze = GenerateMaze()
+maze = GenerateMaze(5,6)
 
 class FindSolution():
 

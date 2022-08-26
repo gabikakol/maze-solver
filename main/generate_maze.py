@@ -4,11 +4,9 @@ class GenerateMaze():
 
     '''creates a ranom maze using randomized Prim's algorithm'''
 
-    def __init__(self):
-    #def __init__(self, width, height):
-        #user input
+    def __init__(self, width, height):
         
-        
+        '''
         width = int(input("Width: "))
         while width < 3:
             print("The minimum width of the maze must be 3")
@@ -18,7 +16,7 @@ class GenerateMaze():
         while height <3:
             print("The minimum height of the maze must be 3")
             height = int(input("Height: "))
-
+        '''
         
 
         self.width = width
@@ -303,4 +301,4 @@ class GenerateMaze():
                 self.maze[self.height-1][i] = "."
                 self.exit = i
                 break
-
+        
