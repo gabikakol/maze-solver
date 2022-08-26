@@ -10,6 +10,11 @@ class TestFind(unittest.TestCase):
         (1, 0): 'from_top', (1, 1): 'from_bottom', (1, 2): 'from_bottom', (1, 3): 'from_left', 
         (2, 0): 'from_left', (2, 1): 'from_top', (2, 2): 'from_top', (2, 3): 'from_top', 
         (3, 0): 'from_bottom', (3, 1): 'from_bottom', (3, 2): 'from_left', (3, 3): 'from_bottom'}
+    
+    def test_init(self):
+        length_marked = len(self.marked)
+        length_walkable = len(self.walkable)
+        self.assertEqual(length_marked, length_walkable)
 
     def test_junction_from_top(self):
         next_move = solve.junction_from_top(self,2,2)
@@ -79,6 +84,19 @@ class TestFind(unittest.TestCase):
         self.assertNotEqual(row,0)
         next_move = solve.return_to_junction(self,"from_right",0,0)
         self.assertEqual(next_move, ('from_bottom', 0, 1))
+
+        row,column = 0,0
+        direction = self.moves[(row,column)]
+        self.assertEqual(direction, "from_left")
+        row, column = 2,1
+        direction = self.moves[(row, column)]
+        self.assertEqual(direction, "from_top")
+        row,column = 3,1
+        direction = self.moves[(row,column)]
+        self.assertEqual(direction, "from_bottom")
+        row,column = 0,2
+        direction = self.moves[(row,column)]
+        self.assertEqual(direction, "from_right")
         
 if __name__ == "__main__":
     unittest.main()
