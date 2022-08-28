@@ -1,4 +1,5 @@
 import random
+import time
 
 class Generate():
 
@@ -300,3 +301,5 @@ class Generate():
                 self.maze[self.height-1][i] = "."
                 self.exit = i
                 break
+
+        

@@ -1,6 +1,7 @@
 import copy
 from generate import Generate 
 from illustrate_maze import IllustrateMaze
+import time
 
 class Maze():
 

@@ -16,7 +16,7 @@ menu = pygame_menu.Menu('Maze dimensions', 600, 300, theme=pygame_menu.themes.TH
 def maze_dimensions():
     width = int(w.get_value())
     height = int(h.get_value())
-    if width<3 or width>50 or height<3 or width>50:
+    if width<3 or width>40 or height<3 or width>40:
         pass        #to be done
     go = Maze(width, height)
 
@@ -26,3 +26,4 @@ menu.add.button('Go!', maze_dimensions)
 menu.add.button('Exit', pygame_menu.events.EXIT)
 
 menu.mainloop(window)
+
