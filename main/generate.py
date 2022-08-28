@@ -1,6 +1,6 @@
 import random
 
-class GenerateMaze():
+class Generate():
 
     '''creates a ranom maze using randomized Prim's algorithm'''
 
@@ -17,7 +17,6 @@ class GenerateMaze():
             print("The minimum height of the maze must be 3")
             height = int(input("Height: "))
         '''
-        
 
         self.width = width
         self.height = height
@@ -301,4 +300,3 @@ class GenerateMaze():
                 self.maze[self.height-1][i] = "."
                 self.exit = i
                 break
-        

@@ -1,13 +1,15 @@
 import copy
-from generate_maze import GenerateMaze 
+from generate import Generate 
+from illustrate_maze import IllustrateMaze
 
-maze = GenerateMaze(5,6)
-
-class FindSolution():
+class Maze():
 
     '''finds the solution path for the maze from GenerateMaze() class'''
     
-    def __init__(self):
+    def __init__(self, width, height):
+
+        maze = Generate(width, height)
+
         self.entrance = copy.deepcopy(maze.entrance)
         self.marked = copy.deepcopy(maze.maze)
 
@@ -26,8 +28,8 @@ class FindSolution():
         self.exit = copy.deepcopy(maze.exit)
         self.moves = {}
 
-        self.width = maze.width
-        self.height = maze.height
+        self.width = width
+        self.height = height
 
         self.current_cell("from_top", 0, self.entrance)
 
@@ -216,6 +218,9 @@ class FindSolution():
                 a = self.junction_from_bottom(row, column)
             
             self.current_cell(a[0], a[1], a[2])
+
+        if exit:
+            IllustrateMaze(self.width, self.height, self.marked)
 
 
     def scan_for_exit(self, row, column):
