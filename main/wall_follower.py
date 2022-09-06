@@ -165,15 +165,5 @@ class WallFollower:
         self.current_cell(row, column, direction)
     '''
 
-    def exit_found(self):
-        print("exit found")
-
-    def print_maze(self):   
-        for i in range(len(self.marked)):
-            for j in range(len(self.marked[i])):
-                print(self.marked[i][j], end=" ")
-            print("")
-        print("")
-
 if __name__ == "__main__":
     go = WallFollower(5,5)
