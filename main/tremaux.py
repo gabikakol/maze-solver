@@ -1,9 +1,8 @@
 import copy
-from generate import Generate 
-from illustrate_maze import IllustrateMaze
-import time
+from generate import Generate
+from visualize import Visualize
 
-class Maze():
+class Tremaux():
 
     '''finds the solution path for the maze from GenerateMaze() class'''
     
@@ -221,7 +220,7 @@ class Maze():
             self.current_cell(a[0], a[1], a[2])
 
         if exit:
-            IllustrateMaze(self.width, self.height, self.marked)
+            Visualize(self.width, self.height, self.marked, [])
 
 
     def scan_for_exit(self, row, column):

@@ -1,5 +1,5 @@
 import unittest
-from generate_maze import GenerateMaze as maze
+from generate import Generate as maze
 
 class TestGenerate(unittest.TestCase):
 

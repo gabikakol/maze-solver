@@ -1,7 +1,7 @@
 import pygame
 import pygame_menu
 
-from maze import Maze
+from tremaux import Tremaux
 
 '''
 PyGame Menu asks for user input: width and height of the maze, ie. number of cells
@@ -18,7 +18,7 @@ def maze_dimensions():
     height = int(h.get_value())
     if width<3 or width>40 or height<3 or width>40:
         pass        #to be done
-    go = Maze(width, height)
+    go = Tremaux(width, height)
 
 w = menu.add.text_input('Width: ')
 h = menu.add.text_input('Height: ')

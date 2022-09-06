@@ -1,5 +1,5 @@
 import unittest
-from find_solution import FindSolution as solve
+from tremaux import Tremaux as solve
 
 class TestFind(unittest.TestCase):
 
