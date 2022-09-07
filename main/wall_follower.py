@@ -22,6 +22,7 @@ class WallFollower:
         self.exit = copy.deepcopy(maze.exit)
 
         #self.print_maze()
+        #self.steps.append([0,self.entrance, "S"])
         self.current_cell(0,self.entrance, "S")
         #facing direction: N, S, E, W
 
@@ -88,63 +89,115 @@ class WallFollower:
 
     def check_south(self, row, column):
 
+        path = []
+
         if column+1<len(self.maze[0]) and self.maze[row][column+1] != "#":
-            return [row, column+1, "E"]
+            path = [row, column+1, "E"]
+            #self.steps.append([row, column+1, "E", True])
+            #return [row, column+1, "E", True]
 
-        if row+1<len(self.maze) and self.maze[row+1][column] != "#":
-            return [row+1, column, "S"]
+        elif row+1<len(self.maze) and self.maze[row+1][column] != "#":
+            path = [row+1, column, "S"]
+            #self.steps.append([row+1, column, "S", False])
+            #return [row+1, column, "S", False]
 
-        if column-1>=0 and self.maze[row][column-1] != "#":
-            return [row, column-1, "W"]
+        elif column-1>=0 and self.maze[row][column-1] != "#":
+            path = [row, column-1, "W"]
+            #self.steps.append([row, column-1, "W", True])
+            #return [row, column-1, "W", True]
 
-        self.marked[row][column] += 1
-        self.steps.append([row, column, "N"])
-        return [row, column, "N"]
+        else:
+            path = [row, column, "N"]
+            self.marked[row][column] += 1
+            self.steps.append(path)
+            #return [row, column, "N", False]
+
+        #self.steps.append(path)
+        return path
 
     def check_north(self, row, column):
 
+        path = []
+
         if column-1>=0 and self.maze[row][column-1] != "#":
-            return [row, column-1, "W"]
+            path = [row, column-1, "W"]
+            #self.steps.append([row, column-1, "W", True])
+            #return [row, column-1, "W", True]
 
-        if row-1>=0 and self.maze[row-1][column] != "#":
-            return [row-1, column, "N"]
+        elif row-1>=0 and self.maze[row-1][column] != "#":
+            path = [row-1, column, "N"]
+            #self.steps.append([row-1, column, "N", False])
+            #return [row-1, column, "N", False]
     
-        if column+1<(len(self.maze[0])) and self.maze[row][column+1] != "#":
-            return [row, column+1, "E"]
+        elif column+1<(len(self.maze[0])) and self.maze[row][column+1] != "#":
+            path = [row, column+1, "E"]
+            #self.steps.append([row, column+1, "E", True])
+            #return [row, column+1, "E", True]
+        
+        else:
+            path = [row, column, "S"]
+            self.marked[row][column] += 1
+            self.steps.append(path)
+            #return [row, column, "S", False]
 
-        self.marked[row][column] += 1
-        self.steps.append([row, column, "S"])
-        return [row, column, "S"]
+        #self.steps.append(path)
+        return path
 
     def check_east(self, row, column):
 
+        path = []
+
         if row-1>=0 and self.maze[row-1][column] != "#":
-            return [row-1, column, "N"]
+            path = [row-1, column, "N"]
+            #self.steps.append([row-1, column, "N", True])
+            #return [row-1, column, "N", True]
 
-        if column+1<len(self.maze[0]) and self.maze[row][column+1] != "#":
-            return [row, column+1, "E"]
+        elif column+1<len(self.maze[0]) and self.maze[row][column+1] != "#":
+            path = [row, column+1, "E"]
+            #self.steps.append([row, column+1, "E", False])
+            #return [row, column+1, "E", False]
     
-        if row+1<len(self.maze) and self.maze[row+1][column] != "#":
-            return [row+1, column, "S"]
+        elif row+1<len(self.maze) and self.maze[row+1][column] != "#":
+            path = [row+1, column, "S"]
+            #self.steps.append([row+1, column, "S", True])
+            #return [row+1, column, "S", True]
 
-        self.marked[row][column] += 1
-        self.steps.append([row, column, "W"])
-        return [row, column, "W"]
+        else:
+            path = [row, column, "W"]
+            self.marked[row][column] += 1
+            self.steps.append(path)
+            #return [row, column, "W", False]
+
+        #self.steps.append(path)
+        return path
 
     def check_west(self, row, column):
 
+        path = []
+
         if row+1<len(self.maze) and self.maze[row+1][column] != "#":
-            return [row+1, column, "S"]
+            path = [row+1, column, "S"]
+            #self.steps.append([row+1, column, "S", True])
+            #return [row+1, column, "S", True]
 
-        if column-1>=0 and self.maze[row][column-1] != "#":
-            return [row, column-1, "W"]
+        elif column-1>=0 and self.maze[row][column-1] != "#":
+            path = [row, column-1, "W"]
+            #self.steps.append([row, column-1, "W", False])
+            #return [row, column-1, "W", False]
 
-        if row-1>=0 and self.maze[row+1][column] != "#":
-            return [row-1, column, "N"]
+        elif row-1>=0 and self.maze[row+1][column] != "#":
+            path = [row-1, column, "N"]
+            #self.steps.append([row-1, column, "N", True])
+            #return [row-1, column, "N", True]
+        
+        else:
+            path = [row, column, "E"]
+            self.marked[row][column] += 1
+            self.steps.append(path)
+            #return [row, column, "E", False]
 
-        self.marked[row][column] += 1
-        self.steps.append([row, column, "E"])
-        return [row, column, "E"]
+        #self.steps.append(path)
+        return path
 
     '''
     def next_move(self, x):
@@ -166,4 +219,4 @@ class WallFollower:
     '''
 
 if __name__ == "__main__":
-    go = WallFollower(5,5)
+    go = WallFollower(25,25)
