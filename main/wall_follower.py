@@ -50,7 +50,7 @@ class WallFollower:
 
 
         if row == len(self.maze)-1 and column == self.exit:
-            Visualize(len(self.maze[0]), len(self.maze), self.marked, self.steps)
+            Visualize(len(self.maze[0]), len(self.maze), self.marked, self.steps, "wf")
 
         else:
 
@@ -218,5 +218,5 @@ class WallFollower:
         self.current_cell(row, column, direction)
     '''
 
-if __name__ == "__main__":
-    go = WallFollower(25,25)
+#if __name__ == "__main__":
+#    go = WallFollower(25,25)

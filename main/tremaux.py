@@ -220,7 +220,7 @@ class Tremaux():
             self.current_cell(a[0], a[1], a[2])
 
         if exit:
-            Visualize(self.width, self.height, self.marked, [])
+            Visualize(self.width, self.height, self.marked, [], "t")
 
 
     def scan_for_exit(self, row, column):

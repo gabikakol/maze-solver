@@ -2,7 +2,7 @@ import pygame
 
 class Visualize:
 
-    def __init__(self, width, height, maze, steps):
+    def __init__(self, width, height, maze, steps, alg):
 
         pygame.init()
 
@@ -12,7 +12,9 @@ class Visualize:
         self.maze = maze
         self.steps = steps
 
-        print(self.steps)
+        self.alg = alg
+
+        #print(self.steps)
 
         if width>height:
             self.cell_size = (600-self.margin*2)//width
@@ -35,8 +37,10 @@ class Visualize:
 
             self.window.fill((0,0,0))
             self.draw_grid()
-            #self.draw_tremaux()
-            self.draw_wall_follower()
+            if self.alg == "t":
+                self.draw_tremaux()
+            if self.alg == "wf":
+                self.draw_wall_follower()
 
             pygame.display.flip()
 
