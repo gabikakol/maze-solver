@@ -17,15 +17,27 @@ menu = pygame_menu.Menu('Maze dimensions', 600, 400, theme=pygame_menu.themes.TH
 def solve_tremaux():
     width = int(w.get_value())
     height = int(h.get_value())
-    if width<3 or width>40 or height<3 or width>40:
-        pass        #to be done
+    if width<3:
+        width = 3
+    if height<3:
+        height = 3
+    if width>30:
+        width = 30
+    if height>30:
+        height = 30
     go = Tremaux(width, height)
 
 def solve_wall_follower():
     width = int(w.get_value())
     height = int(h.get_value())
-    if width<3 or width>40 or height<3 or width>40:
-        pass        #to be done
+    if width<3:
+        width = 3
+    if height<3:
+        height = 3
+    if width>30:
+        width = 30
+    if height>30:
+        height = 30
     go = WallFollower(width, height)
 
 w = menu.add.text_input('Width: ')

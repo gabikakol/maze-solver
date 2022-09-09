@@ -16,6 +16,8 @@ class WallFollower:
                 if self.marked[i][j] == ".":
                     self.marked[i][j] = 0
 
+        #self.start_time = time.time()
+
         self.steps = []
  
         self.entrance = copy.deepcopy(maze.entrance)
@@ -50,7 +52,14 @@ class WallFollower:
 
 
         if row == len(self.maze)-1 and column == self.exit:
-            Visualize(len(self.maze[0]), len(self.maze), self.marked, self.steps, "wf")
+            #print(self.maze)
+            #print(self.marked)
+            #print(self.steps)
+            #self.end_time = time.time()
+            #total_time = "{0:.4f}".format(self.end_time-self.start_time)
+            #print(total_time)
+            #Visualize(len(self.maze[0]), len(self.maze), self.marked, self.steps, "wf")
+            pass
 
         else:
 
@@ -198,25 +207,3 @@ class WallFollower:
 
         #self.steps.append(path)
         return path
-
-    '''
-    def next_move(self, x):
-        if x[0] == "left":
-            self.turn_left(x[1], x[2], x[3])
-        elif x[0] == "straight":
-            self.keep_straight(x[1], x[2], x[3])
-        elif x[0] == "right":
-            self.turn_right(x[1], x[2], x[3])
-
-    def turn_left(self, row, column, direction):
-        self.current_cell(row, column, direction)
-        
-    def keep_straight(self, row, column, direction):
-        self.current_cell(row, column, direction)
-
-    def turn_right(self, row, column, direction):
-        self.current_cell(row, column, direction)
-    '''
-
-#if __name__ == "__main__":
-#    go = WallFollower(25,25)
