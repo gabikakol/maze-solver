@@ -42,6 +42,7 @@ Input: width and height of the maze. Hence, user decides on the complexity of th
 ## Time complexity
 
 Prim's algorithm will have time complexity O(v^2) and space complexity O(v), where 'v' is number of vertices - ie. cells in the maze. Hence, both the time complexity and the space complexity of the program dependent on the program input, ie. the size of the grid (number of cells) of the maze. <br/>
+Tremaux and Wall Follower algorithms run in polynomial time. <br/>
 
 <br/>
 
