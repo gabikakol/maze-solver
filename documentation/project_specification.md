@@ -35,16 +35,18 @@ The algorithm finds a path from the starting point to the exit of the maze by fo
 
 ## Input
 
-Input: width and height of the maze. Hence, user decides on the complexity of the maze - its size is defined by the number of its cells, which is calculated by *width * height*.  <br/>
+Input: width and height of the maze. Hence, user decides on the complexity of the maze - its size is defined by the number of its cells, which is calculated by *(width * height)*. User also chooses the algorithm used to solve the maze (Tremaux or Wall Follower). <br/>
+
 <br/>
-<br/>
-Expected time and space complexities of the program (big-O notations): <br/>
-<br/>
+
+## Time complexity
+
 Prim's algorithm will have time complexity O(v^2) and space complexity O(v), where 'v' is number of vertices - ie. cells in the maze. Hence, both the time complexity and the space complexity of the program dependent on the program input, ie. the size of the grid (number of cells) of the maze. <br/>
+
 <br/>
-<br/>
-Sources:<br/>
-<br/>
+
+## Sources:
+
 Data Structures and Algorithms course materials <br/>
 https://en.wikipedia.org/wiki/Maze_generation_algorithm <br/>
 https://en.wikipedia.org/wiki/Maze-solving_algorithm <br/>
