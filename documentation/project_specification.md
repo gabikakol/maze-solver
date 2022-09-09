@@ -1,14 +1,26 @@
-# project specification
-**Programme: Bachelor in Science <br/>
-Language of the project: english (Python) <br/>**
+# Project specification
+Programme: **Bachelor in Science** <br/>
+Language of the project: **English** <br/>
+Coding language: **Python** <br/>
+<br/>
+
+## Problem to be solved
+maze <br/>
+<br/>
+
+## Data structures and algorithms
+Maze generating:
+- randomized Prim's algorithm
+
+Maze solving:
+- Tremaux algorithm
+- Wall Follower algorithm <br/>
+
 <br/>
 <br/>
-What data structures and algorithms will you be using? <br/>
-<br/>
-I will use randomized Prim's algorithm for maze generating and Tremaux algorithm for maze solving. <br/>
-The project will be written in Python. <br/>
-<br/>
-<br/>
+
+
+
 What problem are you solving and why did you chose these specific data structures and algorithms?<br/>
 <br/>
 I create a random maze generator: generate a maze and solve it (+ I use pygame to illustrate the whole process). I consider maze to be an undirected, fully connected graph, where cells are vertices and the paths in the maze are the edges. <br/>
