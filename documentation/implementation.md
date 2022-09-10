@@ -6,7 +6,7 @@ Code is divided into files: ```index.py```, ```tremaux.py```, ```wall_follower.p
 <br/>
 
 1. **index** <br/>
-??
+Uses PyGame menu library to display the menu for the user. It asks for inputs: width and height of the maze, and selection of the algorithm to solve the maze: Tremaux or Wall Follower. Using the input data, it calls either class ```Tremaux()``` from ```tremaux.py``` file or class ```WallFollower()``` from ```wall_follower.py``` file and passes the width and height arguments. 
 
 2. **tremaux** <br/>
 ??
