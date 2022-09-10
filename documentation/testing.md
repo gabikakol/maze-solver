@@ -30,7 +30,16 @@ For each testing class, a random exemplary maze is used. Such maze is written in
 
 <br/>
 
-hmm?
+Performance of each algorithm has been tested and assesed by measuting the time it takes to return the expected output (ie. generate the grid of the maze or find the solution path). It has been done using ```time``` library. The time was measured by capturing ```start_time = time.time()``` at the beginning of the program performance and ```end_time = time.time()``` when the program stopped:
+- for class ```Generate()```:
+  - ```start_time``` in the function ```.__init__()``` before ```self.init_empty_maze()``` was called
+  - ```end_time``` in the function ```.entrance_exit()``` after both loops terminated (entrance and exit were created)
+- for class ```Tremaux()```:
+  - ```start_time``` in the fucntion ```.__init__()``` before ```self.current_cell()``` was called
+  - ```end_time``` in the function ```.current_cell()``` if ```exit == True``` before ```Visualize()``` was called
+- for class ```WallFollower()```:
+  - ```start_time```
+  - ```end_time```
 
 <br/>
 
