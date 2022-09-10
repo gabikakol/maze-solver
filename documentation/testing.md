@@ -50,3 +50,6 @@ Performance of each algorithm has been tested and assesed by measuting the time 
 </p>
 
 <br/>
+
+### Collected data and test repetition
+???
