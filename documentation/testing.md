@@ -52,4 +52,5 @@ Performance of each algorithm has been tested and assesed by measuting the time 
 <br/>
 
 ### Collected data and test repetition
-???
+<br/>
+![img](/documentation/graph_analysis/excel_data.png)
