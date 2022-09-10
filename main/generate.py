@@ -77,6 +77,7 @@ class Generate():
 
 
     def pick_random_wall(self):
+
         random_wall = self.walls[random.randint(0,len(self.walls)-1)]
 
         #checks if it's an upper wall
@@ -99,6 +100,7 @@ class Generate():
 
 
     def not_upper(self, random_wall):
+
         a = random_wall[0]
         b = random_wall[1]
 
@@ -124,6 +126,7 @@ class Generate():
 
 
     def not_bottom(self, random_wall):
+
         a = random_wall[0]
         b = random_wall[1]
 
@@ -149,6 +152,7 @@ class Generate():
 
 
     def not_left(self, random_wall):
+
         a = random_wall[0]
         b = random_wall[1]
 
@@ -174,6 +178,7 @@ class Generate():
 
 
     def not_right(self, random_wall):
+
         a = random_wall[0]
         b = random_wall[1]
 
@@ -287,7 +292,6 @@ class Generate():
                 self.maze[0][i] = "."
                 self.entrance = i
                 break
-        
         
         '''
         EXIT:

@@ -33,32 +33,46 @@ class TestWallFollower(unittest.TestCase):
             [5, 4, 'N'], [4, 4, 'N'], [4, 3, 'W'], 
             [4, 2, 'W'], [5, 2, 'S'], [6, 2, 'S']]
 
+
     def test_init(self):
+
         length_maze = len(self.maze)
         length_marked = len(self.marked)
         self.assertEqual(length_maze, length_marked)
 
+
     def test_check_south(self):
+
         path = solve.check_south(self,2,2)
         self.assertEqual(len(path),3)
+
         path2 = [3,2,"S"]
         self.assertEqual(path, path2)
 
+
     def test_check_north(self):
+
         path = solve.check_north(self,2,4)
         self.assertEqual(len(path),3)
+
         path2 = [1,4,"N"]
         self.assertEqual(path,path2)
 
+
     def test_check_east(self):
+
         path = solve.check_east(self,1,3)
         self.assertEqual(len(path),3)
+
         path2 = [1,4,"E"]
         self.assertEqual(path,path2)
 
+
     def test_check_west(self):
+
         path = solve.check_west(self,4,5)
         self.assertEqual(len(path), 3)
+        
         path2 = [4,4,"W"]
         self.assertEqual(path,path2)
 

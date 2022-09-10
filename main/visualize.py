@@ -14,8 +14,6 @@ class Visualize:
 
         self.alg = alg
 
-        #print(self.steps)
-
         if width>height:
             self.cell_size = (600-self.margin*2)//width
         else:
@@ -29,14 +27,18 @@ class Visualize:
 
         self.main_loop()
 
+
     def main_loop(self):
+        
         while True:
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     exit()
 
             self.window.fill((0,0,0))
             self.draw_grid()
+
             if self.alg == "t":
                 self.draw_tremaux()
             if self.alg == "wf":
@@ -44,7 +46,9 @@ class Visualize:
 
             pygame.display.flip()
 
+
     def draw_grid(self):
+
         indx_y = 0
 
         for i in self.maze:
@@ -61,7 +65,9 @@ class Visualize:
 
             indx_y += 1
 
+
     def draw_tremaux(self):
+
         indx_y = 0
 
         for i in self.maze:
@@ -78,6 +84,7 @@ class Visualize:
                     
             indx_y += 1
 
+
     def draw_wall_follower(self):
 
             for i in range(len(self.steps)):
@@ -85,40 +92,19 @@ class Visualize:
                 col = self.steps[i][1]
                 dir = self.steps[i][2]
                 intersection = True
-                #intersection = self.steps[i][3]
                 size = (self.cell_size-10)/2
 
-                #y -> row position
-                #x -> col position
-
                 if dir == "S":
-                    #x = self.margin + self.cell_size*(col+0.5)
-                    #y = self.margin + self.cell_size*row
-                    #coord = (x+1, y+1, size, size)
-                    #pygame.draw.rect(self.window, (255, 0, 0), coord)
                     self.top_right(row, col, size)
 
                 if dir == "N":
-                    #x = self.margin + self.cell_size*col
-                    #y = self.margin + self.cell_size*(row+0.5)
-                    #coord = (x+1, y+1, size, size)
-                    #pygame.draw.rect(self.window, (255, 0, 0), coord)
                     self.bottom_left(row,col,size)
 
                 if dir == "E":
                     self.top_left(row,col,size)
-                    #x = self.margin + self.cell_size*col
-                    #y = self.margin + self.cell_size*row
-                    #coord = (x+1, y+1, size, size)
-                    #pygame.draw.rect(self.window, (255, 0, 0), coord)
-
 
                 if dir == "W":
                     self.bottom_right(row,col,size)
-                    #x = self.margin + self.cell_size*(col+0.5)
-                    #y = self.margin + self.cell_size*(row+0.5)
-                    #coord = (x+1, y+1, size, size)
-                    #pygame.draw.rect(self.window, (255, 0, 0), coord)
 
                 if i == len(self.steps)-1:
                     intersection = False
@@ -140,75 +126,65 @@ class Visualize:
                 if dir == "N" and next_dir == "E":
                     self.top_left(row,col,size)
                     self.top_right(row,col,size)
+
                 if dir == "S" and next_dir == "W":
                     self.bottom_right(row,col,size)
                     self.bottom_left(row,col,size)
+
                 if dir == "E" and next_dir == "S":
                     self.top_right(row,col,size)
                     self.bottom_right(row,col,size)
+
                 if dir == "W" and next_dir == "N":
                     self.bottom_left(row,col,size)
                     self.top_left(row,col,size)
                 
-                #pygame.draw.rect(self.window, (255, 0, 0), coord)
-
                 if intersection == False:
-                #y -> row position
-                #x -> col position
 
                     if dir == "S":
                         self.bottom_right(row,col,size)
-                        #x = self.margin + self.cell_size*(col+0.5)
-                        #y = self.margin + self.cell_size*(row+0.5)
-                        #coord = (x+1, y+1, size, size)
-                        #pygame.draw.rect(self.window, (155, 0, 0), coord)
 
                     if dir == "N":
                         self.top_left(row,col,size)
-                        #x = self.margin + self.cell_size*(col)
-                        #y = self.margin + self.cell_size*(row)
-                        #coord = (x+1, y+1, size, size)
-                        #pygame.draw.rect(self.window, (155, 0, 0), coord)
-
 
                     if dir == "E":
                         self.top_right(row,col,size)
-                        #x = self.margin + self.cell_size*(col+0.5)
-                        #y = self.margin + self.cell_size*row
-                        #coord = (x+1, y+1, size, size)
-                        #pygame.draw.rect(self.window, (155, 0, 0), coord)
-
 
                     if dir == "W":
                         self.bottom_left(row,col,size)
-                        #x = self.margin + self.cell_size*(col)
-                        #y = self.margin + self.cell_size*(row+0.5)
-                        #coord = (x+1, y+1, size, size)
-                        #pygame.draw.rect(self.window, (155, 0, 0), coord)
 
-
-                    #pygame.draw.rect(self.window, (155, 0, 0), coord)
 
     def top_left(self,row, col, size):
+
         x = self.margin + self.cell_size*(col)
         y = self.margin + self.cell_size*(row)
         coord = (x+1, y+1, size, size)
+
         pygame.draw.rect(self.window, (255, 0, 0), coord)
 
+
     def top_right(self,row, col, size):
+
         x = self.margin + self.cell_size*(col+0.5)
         y = self.margin + self.cell_size*row
         coord = (x+1, y+1, size, size)
+
         pygame.draw.rect(self.window, (255, 0, 0), coord)
 
+
     def bottom_left(self,row, col, size):
+
         x = self.margin + self.cell_size*(col)
         y = self.margin + self.cell_size*(row+0.5)
         coord = (x+1, y+1, size, size)
+
         pygame.draw.rect(self.window, (255, 0, 0), coord)
 
+
     def bottom_right(self,row, col, size):
+
         x = self.margin + self.cell_size*(col+0.5)
         y = self.margin + self.cell_size*(row+0.5)
         coord = (x+1, y+1, size, size)
+
         pygame.draw.rect(self.window, (255, 0, 0), coord)

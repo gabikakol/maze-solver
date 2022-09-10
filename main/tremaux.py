@@ -1,11 +1,12 @@
 import copy
+
 from generate import Generate
 from visualize import Visualize
 
 class Tremaux():
 
     '''finds the solution path for the maze from Generate() class'''
-    
+
     def __init__(self, width, height):
 
         maze = Generate(width, height)
@@ -73,6 +74,7 @@ class Tremaux():
             move_back = self.return_to_junction("from_top", row, column)
 
             return (move_back[0], move_back[1], move_back[2])
+
     
     def junction_from_left(self, row, column):
 
@@ -114,6 +116,7 @@ class Tremaux():
 
             return (move_back[0], move_back[1], move_back[2])
 
+
     def junction_from_right(self, row, column):
 
         '''checks for junction one down, one up, and one to the left'''
@@ -153,6 +156,7 @@ class Tremaux():
             move_back = self.return_to_junction("from_right", row, column)
             
             return (move_back[0], move_back[1], move_back[2])
+
 
     def junction_from_bottom(self, row, column):
         
@@ -196,6 +200,7 @@ class Tremaux():
 
 
     def current_cell(self, from_where, row, column):
+
         self.moves[(row, column)] = from_where
         exit = False
 
