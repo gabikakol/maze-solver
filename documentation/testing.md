@@ -5,3 +5,7 @@ There are two separate testing files for classes ```GenerateMaze()``` and ```Fin
 
 ## Test coverage
 ![img](/documentation/test_coverage/coverage_report_marked.png)
+
+<br/>
+
+## Performance testing
