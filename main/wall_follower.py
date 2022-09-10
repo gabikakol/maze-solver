@@ -58,8 +58,8 @@ class WallFollower:
             #self.end_time = time.time()
             #total_time = "{0:.4f}".format(self.end_time-self.start_time)
             #print(total_time)
-            #Visualize(len(self.maze[0]), len(self.maze), self.marked, self.steps, "wf")
-            pass
+            Visualize(len(self.maze[0]), len(self.maze), self.marked, self.steps, "wf")
+            #pass
 
         else:
 
