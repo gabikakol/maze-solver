@@ -1,5 +1,22 @@
 # Testing
-There are two separate testing files for classes ```GenerateMaze()``` and ```FindSolution()```: tes_generate_maze.py and test_find_solution.py. Program runs tests using ```unittest```. <br/>Functions of the classes are tested using exemplary input. ```.assertEqual()``` and ```.assertNotEqual()``` are used for comparing expected and returned values, and ```.assertTrue()``` and ```.assertFalse()``` for checking the Boolean values. <br/>
+
+<br/>
+
+## General
+
+There are three test files: 
+- ```test_tremaux.py``` with ```TestTremaux()``` class for testing ```Tremaux()``` class 
+- ```test_wall_follower.py``` with ```TestWallFollower()``` class for testing ```WallFollower()``` class 
+- ```test_generate.py``` with ```TestGenerate()``` class for testing ```Generate()``` class. <br/>
+
+Program runs tests using ```unittest``` library. Functions of the classes are tested using exemplary input. ```.assertEqual()``` and ```.assertNotEqual()``` are used for comparing expected and returned values, and ```.assertTrue()``` and ```.assertFalse()``` for checking the Boolean values. <br/>
+
+<br/>
+
+## Input
+
+Maze dimensions: width and height (integer values between 3 and 30). <br/>
+For each testing class, a random exemplary maze is used. Such maze is written in the function ```.setUp()``` in required by each class formats, and used througout the whole test class. 
 
 <br/>
 
