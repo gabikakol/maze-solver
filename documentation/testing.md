@@ -9,3 +9,15 @@ There are two separate testing files for classes ```GenerateMaze()``` and ```Fin
 <br/>
 
 ## Performance testing
+*Graphs shown below are also included in the implementation document.* <br/>
+
+
+<br/>
+
+<p align="center">
+<br/> <img src="graph_analysis/prims_graph.png" width="500">
+<br/> <img src="graph_analysis/tremaux_graph.png" width="500">
+<br/> <img src="graph_analysis/wall_follower_graph.png" width="500">
+</p>
+
+<br/>
