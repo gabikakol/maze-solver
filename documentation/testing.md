@@ -38,8 +38,8 @@ Performance of each algorithm has been tested and assesed by measuting the time 
   - ```start_time``` in the fucntion ```.__init__()``` before ```self.current_cell()``` was called
   - ```end_time``` in the function ```.current_cell()``` if ```exit == True``` before ```Visualize()``` was called
 - for class ```WallFollower()```:
-  - ```start_time```
-  - ```end_time```
+  - ```start_time``` in the function ```.__init__()``` before ```self.current_cell()``` was called
+  - ```end_time``` in the function ```.current_cell()``` if ```row == len(self.maze)-1 and column == self.exit``` before ```Visualize()``` was called
 
 <br/>
 
