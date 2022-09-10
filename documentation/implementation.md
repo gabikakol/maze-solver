@@ -63,8 +63,13 @@ The graphs below show relation between maze size and time taken by each of the a
 
 <br/>
 
+Relation between grid size and time of Prim's algorithm is almost linear. Algorithm takes more time to generate the maze as its dimensions have larger values. Tremaux algorithm takes less time than Wall Follower with small grid dimensions. However, as dimensions become larger, time taken by Tremaux algorithm increases faster than time taken by Wall Follower. Hence, Tremaux algorithm is more efficient for smaller grid, whereas Wall Follower is more efficient for solving the maze of the larger grid. 
+
+<br/>
+
 ## Possible improvements
-??
+There quite a few possible improvements mainly regarding visualization. Currently PyGame window displays the grid of the maze with the solution path of one (chosen) algorithm. Both algorithms could be visualized in one window so that their performance could be easily compared. 
+
 <br/>
 
 ## Sources
