@@ -6,6 +6,17 @@ Code is divided into files: ```index.py```, ```tremaux.py```, ```wall_follower.p
 <br/>
 
 
+```mermaid
+graph TD;
+    index-->Tremaux;
+    index-->WallFollower;
+    Tremaux-->Generate;
+    WallFollower-->Generate;
+    Generate-->Visualize
+```
+
+<br/>
+
 1. **index** <br/>
 Uses PyGame menu library to display the menu for the user. It asks for inputs: width and height of the maze, and selection of the algorithm to solve the maze: Tremaux or Wall Follower. Wdith and height must be integers in range 3-30. If the user input is smaller than 3, the program automatically sets it to 3. If the user input is greater than 30, the program automatically sets it to 30. If the user input is non integer, the program rounds it up and sets the value as integer number. Using the input data, it calls either class ```Tremaux()``` from ```tremaux.py``` file or class ```WallFollower()``` from ```wall_follower.py``` file and passes the width and height arguments. <br/> 
 
