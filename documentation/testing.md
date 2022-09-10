@@ -53,4 +53,4 @@ Performance of each algorithm has been tested and assesed by measuting the time 
 
 ### Collected data and test repetition
 <br/>
-![img](/documentation/graph_analysis/excel_data.png)
+<img src="graph_analysis/excel_data.png" width="100%">
