@@ -66,3 +66,6 @@ The graphs below show relation between maze size and time taken by each of the a
 ## Possible improvements
 
 ## Sources
+https://en.wikipedia.org/wiki/Maze_generation_algorithm <br/>
+https://en.wikipedia.org/wiki/Maze-solving_algorithm <br/>
+https://en.wikipedia.org/wiki/Prim%27s_algorithm <br/>
