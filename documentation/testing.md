@@ -28,6 +28,9 @@ For each testing class, a random exemplary maze is used. Such maze is written in
 ## Performance testing
 *Graphs shown below are also included in the implementation document.* <br/>
 
+<br/>
+
+hmm?
 
 <br/>
 
