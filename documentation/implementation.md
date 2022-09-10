@@ -33,6 +33,12 @@ Class ```Visualize()``` is called by either ```Tremaux()``` or ```WallFollower()
 
 <br/>
 
+<img src="UI_screenshots/empty_grid.png" width="400"><br/>
+<img src="UI_screenshots/solution_tremaux.png" width="400"><br/>
+<img src="UI_screenshots/solution_wall_follower.png" width="400"><br/>
+
+<br/>
+
 ## Performance
 
 ![](graph_analysis/prims_graph.png)
