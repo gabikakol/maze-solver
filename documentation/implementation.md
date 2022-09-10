@@ -68,7 +68,7 @@ Relation between grid size and time of Prim's algorithm is almost linear. Algori
 <br/>
 
 ## Possible improvements
-There quite a few possible improvements mainly regarding visualization. Currently PyGame window displays the grid of the maze with the solution path of one (chosen) algorithm. Both algorithms could be visualized in one window so that their performance could be easily compared. 
+There quite a few possible improvements mainly regarding visualization. Currently PyGame window displays the grid of the maze with the solution path of one (chosen) algorithm. Both algorithms could be visualized in one window so that their performance could be easily compared. The other improvement could be that the visualization is an animation - it shows steps by step how the grid is generated and how the solution path is found (cells drawn one by one). 
 
 <br/>
 
