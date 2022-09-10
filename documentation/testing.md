@@ -53,4 +53,9 @@ Performance of each algorithm has been tested and assesed by measuting the time 
 
 ### Collected data and test repetition
 <br/>
-<img src="graph_analysis/excel_data.png" width="100%">
+<img src="graph_analysis/excel_data.png" width="100%"> 
+<br/>
+I ran Prim's, Tremaux, and Wall Follower algorithms with width and height input from the column A, tree times each. I collect time taken for their execution and calculate the average. Grid size and average time are used to create the above graphs: <br/>
+- x-axis: grid size (width * height) <br/>
+- y-axis: time [s] <br/>
+
