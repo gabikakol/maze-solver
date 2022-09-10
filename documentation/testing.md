@@ -30,7 +30,7 @@ For each testing class, a random exemplary maze is used. Such maze is written in
 
 <br/>
 
-Performance of each algorithm has been tested and assesed by measuting the time it takes to return the expected output (ie. generate the grid of the maze or find the solution path). It has been done using ```time``` library. The time was measured by capturing ```start_time = time.time()``` at the beginning of the program performance and ```end_time = time.time()``` when the program stopped:
+Performance of each algorithm has been tested and assesed by measuting the time it takes to return the expected output (ie. generate the grid of the maze or find the solution path). It has been done using ```time``` library. The time was measured by capturing ```start_time = time.time()``` at the beginning of the program performance and ```end_time = time.time()``` when the program stopped: <br/>
 - for class ```Generate()```:
   - ```start_time``` in the function ```.__init__()``` before ```self.init_empty_maze()``` was called
   - ```end_time``` in the function ```.entrance_exit()``` after both loops terminated (entrance and exit were created)
@@ -39,7 +39,10 @@ Performance of each algorithm has been tested and assesed by measuting the time 
   - ```end_time``` in the function ```.current_cell()``` if ```exit == True``` before ```Visualize()``` was called
 - for class ```WallFollower()```:
   - ```start_time``` in the function ```.__init__()``` before ```self.current_cell()``` was called
-  - ```end_time``` in the function ```.current_cell()``` if ```row == len(self.maze)-1 and column == self.exit``` before ```Visualize()``` was called
+  - ```end_time``` in the function ```.current_cell()``` if ```row == len(self.maze)-1 and column == self.exit``` before ```Visualize()``` was called <br/>
+<br/>
+
+Total time was calcualted by ```end_time - start_time``` and returned in the floating number format rounded up to 4 decimal places. 
 
 <br/>
 
@@ -55,7 +58,7 @@ Performance of each algorithm has been tested and assesed by measuting the time 
 <br/>
 <img src="graph_analysis/excel_data.png" width="100%"> 
 <br/>
-I ran Prim's, Tremaux, and Wall Follower algorithms with width and height input from the column A, tree times each. I collect time taken for their execution and calculate the average. Grid size and average time are used to create the above graphs: <br/>
+I ran Prim's, Tremaux, and Wall Follower algorithms with width and height inputs from the column A, tree times each. I collect times taken for their execution and calculate the average. Grid size and average time are used to create the above graphs: <br/>
 - x-axis: grid size (width * height) <br/>
 - y-axis: time [s] <br/>
 
