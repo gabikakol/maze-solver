@@ -1,4 +1,4 @@
-# maze solver
+# Maze solver
 Main code: [here](main)
 ## Documentation
 - Project specification: [here](documentation/project_specification.md) <br />
