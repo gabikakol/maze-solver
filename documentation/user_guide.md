@@ -15,4 +15,4 @@ File ```index.py``` is located in the directory ```/main```. Other files require
 
 <br/>
 
-Testing files are located in the directory ```/main/tests``` and coverage report files in ```.html``` format in ```/main/tests/htmlcov```.
+Testing files are located in the directory ```/main/tests``` and coverage report files in ```.html``` format in ```/main/tests/htmlcov```. To generate tests report, use command ```coverage report```.
