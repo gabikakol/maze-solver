@@ -11,6 +11,8 @@ To quit the program when menu is displayed, choose ```exit``` or X button in the
 
 <br/>
 
-File ```index.py``` is located in the directory ```/main```. Other files required to execute the program are: ```tremaux.py```, ```wall_follower.py```, ```generate.py```, ```visualize.py```, and can be found in the same directory. 
+File ```index.py``` is located in the directory ```/main```. Other files required to execute the program are: ```tremaux.py```, ```wall_follower.py```, ```generate.py```, ```visualize.py```, and can be found in the same directory. <br/>
 
 <br/>
+
+Testing files are located in the directory ```/main/tests``` and coverage report files in ```.html``` format in ```/main/tests/htmlcov```.
