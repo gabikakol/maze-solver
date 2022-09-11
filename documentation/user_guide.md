@@ -1,4 +1,10 @@
-# user guide
-install ```pygame``` (pip install pygame)<br/>
-make sure module path is pointed to ```\mazesolver\main``` to avoid ```ModuleNotFoundError``` <br/>
-install ```coverage``` for testing (pip install coverage) <br/>
+# User guide
+
+install ```pygame``` to run PyGame menu and PyGame window for maze visualization, and ```coverage``` for testing report: 
+- ```pip install pygame```
+- ```pip install coverage```
+
+<br/>
+
+??
+
