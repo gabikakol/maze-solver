@@ -6,7 +6,7 @@ from wall_follower import WallFollower
 
 '''
 PyGame Menu asks for user input: width and height of the maze, ie. number of cells
-both inputs must be integers between 3 and 40
+both inputs must be integers between 3 and 30
 '''
 
 pygame.init()

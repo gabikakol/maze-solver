@@ -5,10 +5,17 @@ from visualize import Visualize
 
 class WallFollower:
 
+    '''finds the solution path for the maze from Generate() class using Wall Follower algorithm with left hand rule'''
+
     def __init__(self, width, height):
 
         maze = Generate(width, height)
         self.maze = copy.deepcopy(maze.maze)
+
+        '''
+        0 = not marked
+        +1 with every visit
+        '''
 
         self.marked = copy.deepcopy(maze.maze)
         for i in range(len(self.marked)):
@@ -23,20 +30,15 @@ class WallFollower:
 
         self.current_cell(0,self.entrance, "S")
 
-        #facing direction: N, S, E, W
-
-        #left from to:
-        #   S -> E (col+1)
-        #   N -> W (col-1)
-        #   E -> N (row-1)
-        #   W -> S (row+1)
-
 
     def current_cell(self, row, column, direction):
 
-        #check if there is a wall to the left
-        #check if there is a wall to the front
-        #check if there is a wall to the right
+        '''
+        directions: north (N), south (S), east (E), west (W):
+            if current cell is facing south, it goes one step down from the user's perspective
+            if current cell is facint east, it goes one step to the right from the user's perspective
+            etc...
+        '''
 
         self.marked[row][column] += 1
         self.steps.append([row, column, direction])
@@ -64,6 +66,11 @@ class WallFollower:
 
     def check_south(self, row, column):
 
+        '''
+        first searches for a wall to the left (E), then in front (S), and then to the right (W)
+        if all above mentioned walls exists, it turns 180 degrees around since it's a dead end
+        '''
+
         path = []
 
         if column+1<len(self.maze[0]) and self.maze[row][column+1] != "#":
@@ -84,6 +91,11 @@ class WallFollower:
 
 
     def check_north(self, row, column):
+
+        '''
+        first searches for a wall to the left (W), then in front (N), and then to the right (E)
+        if all above mentioned walls exists, it turns 180 degrees around since it's a dead end
+        '''
 
         path = []
 
@@ -106,6 +118,11 @@ class WallFollower:
 
     def check_east(self, row, column):
 
+        '''
+        first searches for a wall to the left (N), then in front (E), and then to the right (S)
+        if all above mentioned walls exists, it turns 180 degrees around since it's a dead end
+        '''
+
         path = []
 
         if row-1>=0 and self.maze[row-1][column] != "#":
@@ -126,6 +143,11 @@ class WallFollower:
 
 
     def check_west(self, row, column):
+
+        '''
+        first searches for a wall to the left (S), then in front (W), and then to the right (N)
+        if all above mentioned walls exists, it turns 180 degrees around since it's a dead end
+        '''
 
         path = []
 

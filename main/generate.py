@@ -2,7 +2,7 @@ import random
 
 class Generate():
 
-    '''creates a ranom maze using randomized Prim's algorithm'''
+    '''creates a random maze using randomized Prim's algorithm'''
 
     def __init__(self, width, height):
         

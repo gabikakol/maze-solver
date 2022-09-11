@@ -2,6 +2,10 @@ import pygame
 
 class Visualize:
 
+    '''
+    Visualizes grid and solution path of the maze in the pygame window
+    '''
+
     def __init__(self, width, height, maze, steps, alg):
 
         pygame.init()
@@ -37,6 +41,7 @@ class Visualize:
                     exit()
 
             self.window.fill((0,0,0))
+
             self.draw_grid()
 
             if self.alg == "t":
@@ -48,6 +53,8 @@ class Visualize:
 
 
     def draw_grid(self):
+
+        #walls drew with white, walkable paths are black
 
         indx_y = 0
 
@@ -68,6 +75,8 @@ class Visualize:
 
     def draw_tremaux(self):
 
+        #solution path drew in red
+
         indx_y = 0
 
         for i in self.maze:
@@ -86,6 +95,8 @@ class Visualize:
 
 
     def draw_wall_follower(self):
+
+            #solution path drew in red
 
             for i in range(len(self.steps)):
                 row = self.steps[i][0]

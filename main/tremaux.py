@@ -5,7 +5,7 @@ from visualize import Visualize
 
 class Tremaux():
 
-    '''finds the solution path for the maze from Generate() class'''
+    '''finds the solution path for the maze from Generate() class using Wall Follower algorithm'''
 
     def __init__(self, width, height):
 
