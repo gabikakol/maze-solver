@@ -1,5 +1,8 @@
 
 # Maze solver
+Repository for Algorithms and Data Structures Lab Course (4cr), University of Helsinki <br/>
+
+## Project
 Main code: [here](main)
 
 ## Documentation
